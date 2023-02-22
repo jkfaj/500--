@@ -1,5 +1,4 @@
-
-​from pydub import AudioSegment
+from pydub import AudioSegment
 import pydub
 from pydub.silence import split_on_silence
 import sys
@@ -21,7 +20,7 @@ for i in os.listdir(filepath):
     
     for j in range(total):
     # 将音频10s切片，并以顺序进行命名
-        wavpath=savpath+'\\'+j+z+'.wav'
+        wavpath=savpath+'\\'+str(j+z)+'.wav'
         audio_segment[j*10000:(j+1)*10000].export(wavpath)
      
     z=z+total
