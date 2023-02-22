@@ -1,0 +1,21 @@
+
+​from pydub import AudioSegment
+import pydub
+from pydub.silence import split_on_silence
+import sys
+import os
+
+
+
+filepath = '贝壳桥音乐第一章轻音乐.wav'
+for i in os.listdir():
+    filename=filepath+'//'+i
+    audio_segment = AudioSegment.from_file(filename, format='wav')
+
+    total = int(audio_segment.duration_seconds / 10) # 计算音频切片后的个数
+    for i in range(total):
+    # 将音频10s切片，并以顺序进行命名
+        audio_segment[i*10000:(i+1)*10000].export("ouput/chunk{0}.wav".format(i), format="wav") 
+    
+    audio_segment[total*10000:].export("ouput/chunk{0}.wav".format(total), format="wav") # 缺少结尾的音频片段
+
