@@ -8,6 +8,7 @@ import os
 
 
 filepath = 'D:\\视频项目\\AI唱歌\\wav'
+savpath='D:\\视频项目\\AI唱歌\\wav\\out_wav'
 z=0
 total=0
 
@@ -20,7 +21,8 @@ for i in os.listdir(filepath):
     
     for j in range(total):
     # 将音频10s切片，并以顺序进行命名
-        audio_segment[j*10000:(j+1)*10000].export("ouput/chunk{0}.wav".format(j+z), format="wav")
+        wavpath=savpath+'\\'+j+z+'.wav'
+        audio_segment[j*10000:(j+1)*10000].export(wavpath)
      
     z=z+total
     #audio_segment[total*10000:].export("ouput/chunk{0}.wav".format(total), format="wav") # 缺少结尾的音频片段
