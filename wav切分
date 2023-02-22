@@ -7,9 +7,9 @@ import os
 
 
 
-filepath = '贝壳桥音乐第一章轻音乐.wav'
+filepath = 'D:\\视频项目\\AI唱歌\\wav'
 for i in os.listdir():
-    filename=filepath+'//'+i
+    filename=filepath+'\\'+i
     audio_segment = AudioSegment.from_file(filename, format='wav')
 
     total = int(audio_segment.duration_seconds / 10) # 计算音频切片后的个数
